@@ -11,7 +11,7 @@ const forecast = (latitude, longitude, callback) => {
     if (body.error) {
         return callback('Invalid location coordinates')
     }
-    callback(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + body.daily.data[0].precipProbability*100 + '% chance of rain today.')    
+    callback(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + body.daily.data[0].precipProbability*100 + '% chance of rain today and a ' + body.daily.data[1].precipProbability*100 + '% chance to rain tommorow. Current visibility is ' + body.currently.visibility)    
 })
 }
 module.exports = forecast
